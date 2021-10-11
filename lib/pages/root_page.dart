@@ -1,7 +1,11 @@
-import 'package:fb_clone/data/constant.dart';
-import 'package:fb_clone/widgets/navbar_uti.dart';
+import 'package:fb_clone/pages/homePage/story_section/story.dart';
+import 'package:fb_clone/pages/homePage/top_section/post_nav_bar.dart';
 import 'package:flutter/material.dart';
+
+import 'package:fb_clone/pages/homePage/top_section/post_section.dart';
+import 'package:fb_clone/pages/homePage/top_section/top_nav_bar.dart';
 import 'package:fb_clone/theme/colors.dart';
+import 'package:fb_clone/data/constant.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -11,7 +15,6 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int activeTab = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,51 +25,41 @@ class _RootPageState extends State<RootPage> {
 
   Widget getBody() {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+      child: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'facebook',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  children: [
-                    NavBarUti(Icons.search),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    NavBarUti(Icons.chat)
-                    // Icon(Icons.search),
-                    // Icon(Icons.chat),
-                  ],
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+              child: TopNavBar(),
+            ),
+            const Divider(
+              thickness: 2,
             ),
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(navItems.length, (index) {
-                return IconButton(
-                    onPressed: () {
-                      setState(() {
-                        activeTab = index;
-                      });
-                    },
-                    icon: Icon(
-                      navItems[index]['icon'],
-                      size: navItems[index]['size'],
-                      color: activeTab == index ? Colors.blue: black,
-                    ));
-              }),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: PostSection(),
+                  ),
+                  const Divider(
+                    thickness: 1,
+                    height: 20,
+                  ),
+                  PostNavBar(),
+                  const Divider(
+                    thickness: 10,
+                  ),
+                  Story(),
+                  const SizedBox(height: 10,),
+                  const Divider(
+                    thickness: 10,
+                  ),
+                ],
+              ),
             )
           ],
         ),

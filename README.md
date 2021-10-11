@@ -1,6 +1,8 @@
 # fb_clone
 
-A new Flutter project.
+Flutter Practice Project, Facebook Clone
+
+Second Day Update: Upper section and story section finished
 
 ## Getting Started
 
