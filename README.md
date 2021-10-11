@@ -2,7 +2,9 @@
 
 Flutter Practice Project, Facebook Clone
 
-Second Day Update: Upper section and story section finished
+-Second Day Update: Upper section and story section finished
+
+![FB CLONE 2ND DAY](https://raw.githubusercontent.com/ZRShamim/flutter_fbClone/main/project_ss/2ndDay.PNG)
 
 ## Getting Started
 
